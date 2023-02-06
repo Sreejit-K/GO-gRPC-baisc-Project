@@ -13,12 +13,12 @@ const (
 )
 
 type helloServer struct {
-	pb.GreetingServiceServer
+	pb.GreetingServiceServer // interface of the server you have designed in the proto files
 }
 
 func main() {
 
-	// Listener
+	// Listener or activate the port
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
 		log.Fatalf("Failed to start the server %v", err)
@@ -37,3 +37,10 @@ func main() {
 	}
 
 }
+
+// step 1 : decide a port
+// step 2 : setup the port access using protos calls
+// step 3 : register the services that you have defined in the proto files
+// step 4 : use the Register functional from the genrater protobuffs files
+// step 5 : define the server type to pass as reference to the register funtion
+// step 6 : And you are go to go and make the logical changes in the functions that you have declared in the proto files

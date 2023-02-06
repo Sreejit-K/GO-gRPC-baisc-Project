@@ -8,6 +8,6 @@ import (
 
 func (s *helloServer) GreetAPerson(ctx context.Context, req *pb.NoParams) (*pb.GreetingResponse, error) {
 	return &pb.GreetingResponse{
-		Msg: "Hello From the server, how can I help you.",
+		Msg: "Hello from the server, how can I help you.",
 	}, nil
 }
