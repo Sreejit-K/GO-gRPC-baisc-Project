@@ -26,6 +26,7 @@ func main() {
 		Requests: []string{"Sreejith", "Alice", "Durgesh"},
 	}
 
-	callSayHello(client)
-	callHelloServerStreamServer(client, names)
+	// callSayHello(client)
+	// callHelloServerStreamServer(client, names)
+	callHelloClientSideSteaming(client, names)
 }
