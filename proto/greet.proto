@@ -1,0 +1,41 @@
+syntax="proto3";
+
+option go_package= "./pb"; //Directory where the protoBuuffs are created 
+
+package greet_service;
+
+service greetingService {
+
+    //unary 
+    rpc GreetAPerson(NoParams) returns (greetingResponse);
+
+    //serverside streaming  
+    rpc SayHelloServerStreaming(reqList) returns (stream greetingResponse);
+
+    // Client Side streaming 
+    rpc SayHelloClientStreamin (stream greetingRequest) returns (resList);
+
+    // BI-Directional Sreaming 
+    rpc SayHelloBiDirecrionalStreaming(stream greetingRequest ) returns (stream greetingResponse);
+
+}
+
+
+message NoParams {}
+
+message reqList {
+    repeated string requests =1;
+}
+
+message resList {
+    repeated string responses =1;
+}
+
+message greetingRequest {
+    string message =1;
+}
+
+message greetingResponse {
+    string msg =1 ;
+}
+
